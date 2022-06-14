@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using EFCore.BulkExtensions;
 
 namespace Weick.Orm.Core
 {
@@ -162,5 +163,100 @@ namespace Weick.Orm.Core
             }
             _context.Attach(entity);
         }
+
+        #region Bulk
+        public void BulkInsert(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            _context.BulkInsert(entities);
+        }
+        public async Task BulkInsertAsync(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            await _context.BulkInsertAsync(entities);
+        }
+        public void BulkUpdate(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            _context.BulkUpdate(entities);
+        }
+        public async Task BulkUpdateAsync(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            await _context.BulkUpdateAsync(entities);
+        }
+        public void BulkDelete(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            _context.BulkDelete(entities);
+        }
+        public async Task BulkDeleteAsync(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            await _context.BulkDeleteAsync(entities);
+        }
+        public void BulkInsertOrUpdate(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            _context.BulkInsertOrUpdate(entities);
+        }
+        public async Task BulkInsertOrUpdateAsync(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            await _context.BulkInsertOrUpdateAsync(entities);
+        }
+        public void BulkInsertOrUpdateOrDelete(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            _context.BulkInsertOrUpdateOrDelete(entities);
+        }
+        public async Task BulkInsertOrUpdateOrDeleteAsync(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            await _context.BulkInsertOrUpdateOrDeleteAsync(entities);
+        }
+        public void BulkRead(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            _context.BulkRead(entities);
+        }
+        public async Task BulkReadAsync(IList<TEntity> entities)
+        {
+            if (!entities.Any())
+                throw new ArgumentNullException("entities");
+
+            await _context.BulkReadAsync(entities);
+        }
+        public void Truncate()
+        {
+            _context.Truncate<TEntity>();
+        }
+        public async Task TruncateAsync()
+        {
+            await  _context.TruncateAsync<TEntity>();
+        }
+        #endregion
     }
 }
