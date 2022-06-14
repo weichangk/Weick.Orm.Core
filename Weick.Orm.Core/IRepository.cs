@@ -110,5 +110,21 @@ namespace Weick.Orm.Core
         void Delete(Expression<Func<TEntity, bool>> predicate);
         #endregion
 
+        #region Bulk
+        void BulkInsert(IList<TEntity> entities);
+        Task BulkInsertAsync(IList<TEntity> entities);
+        void BulkUpdate(IList<TEntity> entities);
+        Task BulkUpdateAsync(IList<TEntity> entities);
+        void BulkDelete(IList<TEntity> entities);
+        Task BulkDeleteAsync(IList<TEntity> entities);
+        void BulkInsertOrUpdate(IList<TEntity> entities);
+        Task BulkInsertOrUpdateAsync(IList<TEntity> entities);
+        void BulkInsertOrUpdateOrDelete(IList<TEntity> entities);
+        Task BulkInsertOrUpdateOrDeleteAsync(IList<TEntity> entities);
+        void BulkRead(IList<TEntity> entities);
+        Task BulkReadAsync(IList<TEntity> entities);
+        void Truncate();
+        Task TruncateAsync();
+        #endregion
     }
 }
