@@ -154,7 +154,7 @@ namespace Weick.Orm.Core
         protected virtual DbSet<TEntity> Entities => _entities ?? (_entities = _context.Set<TEntity>());
 
         #endregion
-        private void AttachIfNot(TEntity entity)
+        public void AttachIfNot(TEntity entity)
         {
             var entry = _context.ChangeTracker.Entries().FirstOrDefault(ent => ent.Entity == entity);
             if (entry != null)

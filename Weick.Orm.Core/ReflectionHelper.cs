@@ -20,8 +20,9 @@ namespace Weick.Orm.Core
             var list = new List<Assembly>();
             DependencyContext dependencyContext = DependencyContext.Default;
             IEnumerable<CompilationLibrary> libs = dependencyContext.CompileLibraries.Where(s => !s.Serviceable &&
-                                                              s.Type == "project" && s.Name != "yrjw.CommonToolsCore" && 
-                                                              s.Name != "yrjw.ORM.Chimp" && !s.Name.EndsWith(".Model"));
+                                                              s.Type == "project" 
+                                                              && s.Name != "Weick.Orm.Core" 
+                                                              && !s.Name.EndsWith(".Model"));
             foreach (var lib in libs)
             {
                 Assembly assembly = AssemblyLoadContext.Default.LoadFromAssemblyName(new AssemblyName(lib.Name));

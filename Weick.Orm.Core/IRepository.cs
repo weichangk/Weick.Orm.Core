@@ -13,7 +13,8 @@ namespace Weick.Orm.Core
     /// <typeparam name="TEntity">Main Entity type this repository works on</typeparam>
     public interface IRepository<TEntity> where TEntity : class
     {
-
+        void AttachIfNot(TEntity entity);
+        
         #region Select/Get/Query
         /// <summary>
         /// GetById
